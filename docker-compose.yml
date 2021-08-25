@@ -10,8 +10,8 @@ services:
         TZ: 'Europe/Berlin'
         WEBPASSWORD: 'sicheresPasswort'  # hier euer Passwort eingeben
       volumes:
-         - '/home/sebi/SeePi/pihole/pihole/:/etc/pihole/'
-         - '/home/sebi/SeePi/pihole/dnsmasq/:/etc/dnsmasq.d/'
+         - 'E:/SeePi/pihole/pihole/:/etc/pihole/'
+         - 'E:/SeePi/pihole/dnsmasq/:/etc/dnsmasq.d/'
       dns:
         - 127.0.0.1
         - 1.1.1.1
