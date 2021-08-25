@@ -15,7 +15,7 @@ services:
         WEBPASSWORD: 'sicheresPasswort'  # hier euer Passwort eingeben
       volumes:
          - '/home/sebi/SeePi/pihole/pihole/:/etc/pihole/'
-         - '/opt/containers/pihole/dnsmasq/:/etc/dnsmasq.d/'
+         - '/home/sebi/SeePi/pihole/dnsmasq/:/etc/dnsmasq.d/'
       dns:
         - 127.0.0.1
         - 1.1.1.1
