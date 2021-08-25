@@ -74,3 +74,6 @@ l)
 traeffic?
 https://goneuland.de/traefik-v2-reverse-proxy-fuer-docker-unter-debian-10-einrichten/
 
+m)
+https://jordancrawford.kiwi/rpi-home-server/
+
