@@ -1,0 +1,42 @@
+RASPBERRY PI AUFSETZEN!
+(https://wiki.learnlinux.tv/index.php/Setting_up_a_Raspberry_Pi_Kubernetes_Cluster_with_Ubuntu_20.04)
+(https://wiki.learnlinux.tv/index.php/Building_a_10_Node_Raspberry_Pi_Kubernetes_Cluster)
+
+a)
+Flashen!
+BalenaEtcher (Balena suchen!)
+Image + Sd KArte;
+
+b)
+Raspberry aufsetzen
+Deutsches Layout:
+
+sudo nano /etc/default/keyboard
+XKBLAYOUT=”us” zu XKBLAYOUT=”de”
+
+
+
+c)
+Raspberry umbenennen:
+sudo nano /etc/hostname
+sepi-0X
+sudo nano /etc/hosts
+unter 
+127.0.0.1 ...
+127.0.1.1 sepi-0X
+
+
+d) updaten
+sudo apt-get update
+sudo apt-get upgrade
+
+
+e) neuer nutzer
+sudo adduser sebi
+sudo usermod -aG sudo sebi
+
+f) install docker
+curl -sSL get.docker.com | sh
+
+g) add user to docker usergroup!
+sudo usermod -aG docker sebi
