@@ -64,6 +64,7 @@ pihole auf docker!
 https://forum-raspberrypi.de/forum/thread/49428-pihole-und-vodafone-station/
 https://goneuland.de/pi-hole-mit-docker-compose-und-traefik-installieren/
 https://hub.docker.com/r/pihole/pihole
+https://discourse.pi-hole.net/t/dhcp-with-docker-compose-and-bridge-networking/17038
 
 
 k)

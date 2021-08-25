@@ -5,11 +5,7 @@ services:
       container_name: pihole
       image: pihole/pihole:latest
       restart: unless-stopped
-      ports:
-        - "53:53/tcp"
-        - "53:53/udp"
-        - "67:67/udp"
-        - "80:80/tcp"
+      network_mode: "host"
       environment:
         TZ: 'Europe/Berlin'
         WEBPASSWORD: 'sicheresPasswort'  # hier euer Passwort eingeben
