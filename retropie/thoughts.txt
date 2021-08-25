@@ -1,0 +1,2 @@
+a) Gibts das in Docker?
+b) Gibts ne Möglichkeit das über Netzwerk freizugeben?
