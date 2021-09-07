@@ -169,3 +169,56 @@ Next:
 Flannel network driver?
     https://github.com/flannel-io/flannel
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+
+
+
+
+# p) Pi-Hole im Kubernetes Cluster
+https://lookslikematrix.de/raspberry-pi/2021/01/04/pi-hole.html
+
+https://www.jeffgeerling.com/blog/2020/raspberry-pi-cluster-episode-4-minecraft-pi-hole-grafana-and-more
+This is the pirate guy!
+
+Okay helm again. Seems necessary
+before:
+Monitoring Cluster!
+
+So I downloaded Carlos' cluster-monitoring project to the Pi and deployed it instead:
+
+Log into the master Pi: ssh pirate@turing-master
+Switch to the root user: sudo su
+Install prerequisite tools: apt-get update && apt-get install -y build-essential golang
+Clone the project: git clone https://github.com/carlosedp/cluster-monitoring.git
+Edit the vars.jsonnet file, tweaking the IP addresses to servers in your cluster, and enabling the k3s option and armExporter.
+Run make vendor && make (this takes a while)
+Run the final commands in the Quickstart for K3s guide to kubectl apply manifests, and wait for everything to roll out.
+Once everything has started successfully, you should be able to access Prometheus, Alertmanager, and Grafana at the URLs you can retrieve via:
+
+kubectl get ingress -n monitoring
+
+https://greg.jeanmart.me/2020/04/13/self-host-pi-hole-on-kubernetes-and-block-ad/
+
+1
+$ kubectl create namespace pihole
+
+
+kubectl apply -f pihole.persistentvolume.yml
+kubectl apply -f pihole.persistentvolumeclaim.yml
+
+Siehe greg!
+
+## HELM AGAIN!
+https://helm.sh/docs/intro/install/
+curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+
+
+$ helm repo add mojo2600 https://mojo2600.github.io/pihole-kubernetes/ && helm repo update
+
+
+$ kubectl create secret generic pihole-secret \
+    --from-literal='password=PeterPeter' \
+    --namespace pihole
+
+
+
+
