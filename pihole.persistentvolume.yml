@@ -1,5 +1,3 @@
-## pihole.persistentvolume.yml
----
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -14,5 +12,5 @@ spec:
     - ReadWriteOnce
   hostPath:
     path: "/home/sest/piholestor"
----
+
 
