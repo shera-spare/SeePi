@@ -8,7 +8,10 @@ RUN apt-get update \
     libsodium-dev \
     libicu-dev \
     libssl-dev\
-    libcurl4-gnutls-dev
+    libcurl4-gnutls-dev\
+    libxml2-dev\
+    libgit2-dev\
+    build-essential
 
 RUN install2.r --error tidyverse devtools shiny shinydashboard
 
