@@ -17,4 +17,6 @@ RUN kmdir -p /app
 COPY ui.R /app/ui.r
 COPY server.R /app/server.R
 
+EXPOSE 8080
+
 ENTRYPOINT [ "R" ]
