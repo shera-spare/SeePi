@@ -1,4 +1,4 @@
-FROM arm32v7/ubuntu:focal
+FROM arm32v8/ubuntu:focal
 
 # Add user to 'staff' group, granting them write privileges to /usr/local/lib/R/site.library
 
