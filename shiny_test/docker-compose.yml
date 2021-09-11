@@ -9,5 +9,4 @@ services:
        - ~/shiny-server/apps:/srv/shiny-server/
        - ~/shiny-server/logs:/var/log/shiny-server/
        - ~/shiny-server/conf:/etc/shiny-server/
-    restart_polixy: 
-       condition: on-failure
+    restart: on-failure
