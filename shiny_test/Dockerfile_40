@@ -8,6 +8,6 @@ RUN apt-get update \
     libsodium-dev \
     libicu-dev \
     libssl-dev\
-    libcurl4-gnutls-dev\
+    libcurl4-gnutls-dev
 
 ENTRYPOINT [ "R" ]
