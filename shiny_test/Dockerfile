@@ -1,4 +1,4 @@
-FROM rstudio/r-ver:latest
+FROM rstudio/shiny-verse:latest
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
@@ -13,7 +13,7 @@ RUN apt-get update \
     libgit2-dev\
     build-essential
 
-RUN /rocker_scripts/install_shiny_server.sh
+# RUN /rocker_scripts/install_shiny_server.sh
 # https://github.com/rocker-org/rocker-versioned2/blob/master/scripts/install_shiny_server.sh
 
 RUN install2.r --error tidyverse devtools shinydashboard
@@ -27,6 +27,6 @@ COPY runApp.R /app/runApp.R
 
 EXPOSE 8080
 
-# ENTRYPOINT [ "R" ]
+ENTRYPOINT [ "R" ]
 # CMD R -q -e "source('runApp.R')"
-CMD R CMD BATCH runApp.R
+# CMD R CMD BATCH runApp.R
