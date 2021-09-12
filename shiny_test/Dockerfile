@@ -24,4 +24,4 @@ COPY server.R /app/server.R
 EXPOSE 8080
 
 # ENTRYPOINT [ "R" ]
-CMD R -q -e "source('shiny::runApp(port=8080)')"
+CMD R -q -e "shiny::runApp(port=8080)"
