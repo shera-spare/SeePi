@@ -15,7 +15,7 @@ RUN apt-get update \
 
 RUN install2.r --error tidyverse devtools shiny shinydashboard
 
-RUN R -e "source(devtools::install_github('shera-spare/RasPi'))"
+# RUN R -e "source(devtools::install_github('shera-spare/RasPi'))"
 RUN kmdir -p /app
 COPY ui.R /app/ui.r
 COPY server.R /app/server.R
