@@ -4,4 +4,4 @@
   library(tidyverse)
 }
 
-shiny::runApp(port = 8080, host = '0.0.0.0')
+shiny::runApp(appDir = "/app", port = 8080, host = "0.0.0.0")
