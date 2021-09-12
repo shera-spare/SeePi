@@ -1,17 +1,28 @@
-version: "3"
+version: "3.8"
 
-services:
-    pihole:
-      container_name: pihole
-      image: pihole/pihole:latest
-      restart: unless-stopped
-      network_mode: "host"
-      environment:
-        TZ: 'Europe/Berlin'
-        WEBPASSWORD: 'sicheresPasswort'  # hier euer Passwort eingeben
-      volumes:
-         - 'E:/SeePi/pihole/pihole/:/etc/pihole/' # /home/sebi/SeePi/
-         - 'E:/SeePi/pihole/dnsmasq/:/etc/dnsmasq.d/' # /home/sebi/SeePi/
-      dns:
-        - 127.0.0.1
-        - 1.1.1.1
+services: 
+  nginx:
+    image: nginx:latest
+    container_name: seepi_nginx
+    restart: on-failure
+    volumes: 
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    ports: 
+      - "8080:8080"
+    networks: 
+      - "seepi-network"
+  
+  shiny-test:
+    image: raspi-shiny:latest
+    container_name: seepi_shinytest
+    build:
+      context: shiny-test
+    restart: on-failure
+    depends_on: nginx
+    networks: 
+      - "seepi-network"
+    expose: 
+      - 8080
+
+networks: 
+  seepi-network:
