@@ -17,9 +17,11 @@ RUN install2.r --error tidyverse devtools shiny shinydashboard
 
 # RUN R -e "source(devtools::install_github('shera-spare/RasPi'))"
 RUN mkdir -p /app
+WORKDIR /app
 COPY ui.R /app/ui.r
 COPY server.R /app/server.R
 
 EXPOSE 8080
 
-ENTRYPOINT [ "R" ]
+# ENTRYPOINT [ "R" ]
+CMD R -q -e "source('shiny::runApp(port=8080)')"
