@@ -14,8 +14,8 @@ RUN apt-get update \
     build-essential
 
 RUN install2.r --error tidyverse devtools shiny shinydashboard
+RUN installGithub.r shera-spare/RasPi
 
-RUN R -e "source(devtools::install_github('shera-spare/RasPi'))"
 RUN mkdir -p /app
 WORKDIR /app
 COPY ui.R /app/ui.r
