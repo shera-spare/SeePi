@@ -14,7 +14,7 @@ services:
   
   shiny-test:
     image: raspi-shiny:latest
-    container_name: seepi_shinytest
+    container_name: seepi-shinytest
     build:
       context: shiny_test
     restart: on-failure
