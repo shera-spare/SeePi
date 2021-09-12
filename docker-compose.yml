@@ -16,7 +16,7 @@ services:
     image: raspi-shiny:latest
     container_name: seepi_shinytest
     build:
-      context: shiny-test
+      context: shiny_test
     restart: on-failure
     depends_on: 
       - nginx
