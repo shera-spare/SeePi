@@ -20,8 +20,10 @@ RUN mkdir -p /app
 WORKDIR /app
 COPY ui.R /app/ui.r
 COPY server.R /app/server.R
+COPY runApp.R /app/runApp.R
 
 EXPOSE 8080
 
 # ENTRYPOINT [ "R" ]
-CMD R -q -e "source('runApp.R')"
+# CMD R -q -e "source('runApp.R')"
+CMD R CMD BATCH runApp.R
