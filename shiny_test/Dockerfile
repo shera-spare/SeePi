@@ -1,4 +1,4 @@
-FROM rstudio/shiny-verse:latest
+FROM rocker/shiny-verse:latest
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
