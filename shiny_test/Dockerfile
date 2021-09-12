@@ -13,7 +13,10 @@ RUN apt-get update \
     libgit2-dev\
     build-essential
 
-RUN install2.r --error tidyverse devtools shiny shinydashboard
+RUN /rocker_scripts/install_shiny_server.sh
+# https://github.com/rocker-org/rocker-versioned2/blob/master/scripts/install_shiny_server.sh
+
+RUN install2.r --error tidyverse devtools shinydashboard
 RUN installGithub.r shera-spare/RasPi
 
 RUN mkdir -p /app
