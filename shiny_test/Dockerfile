@@ -24,4 +24,4 @@ COPY server.R /app/server.R
 EXPOSE 8080
 
 # ENTRYPOINT [ "R" ]
-CMD R CMD BATCH runApp.R
+CMD R -q -e "source('runApp.R')"
