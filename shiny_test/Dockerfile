@@ -1,4 +1,4 @@
-FROM r-base:latest
+FROM rstudio/r-ver:latest
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
