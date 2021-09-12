@@ -18,7 +18,8 @@ services:
     build:
       context: shiny-test
     restart: on-failure
-    depends_on: nginx
+    depends_on: 
+      - nginx
     networks: 
       - "seepi-network"
     expose: 
