@@ -11,6 +11,8 @@ services:
       - "8080:8080"
     networks: 
       - "seepi-network"
+    depends_on: 
+      - shiny-test
   
   shiny-test:
     image: raspi-shiny:latest
@@ -18,8 +20,6 @@ services:
     build:
       context: shiny_test
     restart: on-failure
-    depends_on: 
-      - nginx
     networks: 
       - "seepi-network"
     expose: 
