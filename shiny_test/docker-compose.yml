@@ -5,6 +5,7 @@ services:
     container_name: shiny-server-arm
     ports:
       - 3838:3838
+      - 8080:8080
     volumes:
        - ~/shiny-server/apps:/srv/shiny-server/
        - ~/shiny-server/logs:/var/log/shiny-server/

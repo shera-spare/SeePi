@@ -71,16 +71,16 @@ RUN git clone https://github.com/rstudio/shiny-server.git \
 WORKDIR /shiny-server/tmp/
 
 #Install node for rshiny. Currently only --unsafe-perm works (see https://github.com/npm/npm/issues/3497) 
-RUN PYTHON=`which python` && \
-    mkdir ../build && \
-    cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DPYTHON="$PYTHON" ../ && \
+# RUN PYTHON=`which python`
+RUN mkdir ../build && \
+    cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DPYTHON=python ../ && \
     make -j4 && \
     ../external/node/install-node.sh && \
     ../bin/node ../ext/node/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js configure && \
-    ../bin/node ../ext/node/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js --python="$PYTHON" rebuild && \
-    ../bin/npm --python="${PYTHON}" install --no-optional && \
-    ../bin/npm --python="${PYTHON}" install --no-optional --unsafe-perm && \
-    ../bin/npm --python="${PYTHON}" rebuild && \
+    ../bin/node ../ext/node/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js --python=python rebuild && \
+    ../bin/npm --python=python install --no-optional && \
+    ../bin/npm --python=python install --no-optional --unsafe-perm && \
+    ../bin/npm --python=python rebuild && \
     make -j4 install
 
 # ------------------------------------------------------------------------------
