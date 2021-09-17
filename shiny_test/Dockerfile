@@ -148,9 +148,31 @@ RUN installGithub.r shera-spare/RasPi
 #COPY runApp.R /app/runApp.R
 
 #EXPOSE 8080
+WORKDIR /
+RUN useradd -r -m shiny
+RUN ln -s /usr/local/shiny-server/bin/shiny-server /usr/bin/shiny-server
+
+#Create folder structure and set permissions
+RUN mkdir -p        /var/log/shiny-server && \
+    chown shiny     /var/log/shiny-server && \
+    chmod -R 777    /var/log/shiny-server && \
+    mkdir -p        /srv/shiny-server     && \
+    chmod -R 777    /srv/shiny-server     && \
+    mkdir -p        /var/lib/shiny-server && \
+    chmod -R 777    /var/lib/shiny-server && \
+    mkdir -p        /etc/shiny-server     && \
+    chmod -R 777    /srv/shiny-server
+
+#Shiny server configuration
+COPY shiny-server.conf /etc/shiny-server/shiny-server.conf
+
+#Init file for installing R-packages from host
+COPY init.sh /etc/shiny-server/init.sh
+RUN chmod 777 /etc/shiny-server/init.sh
 
 # ENTRYPOINT [ "R" ]
 # CMD R -q -e "source('runApp.R')"
 #CMD R CMD BATCH runApp.R
+COPY app01/* /srv/shiny-server/app01/
 
 ENTRYPOINT ["/etc/shiny-server/init.sh"]
