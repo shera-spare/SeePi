@@ -134,7 +134,6 @@ RUN useradd -r -m shiny \
        libpq-dev \
        libsodium-dev \
        libicu-dev \
-       libcurl4-gnutls-dev\
        libxml2-dev\
        libgit2-dev\
        build-essential
