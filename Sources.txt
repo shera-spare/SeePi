@@ -8,6 +8,7 @@
 # shiny
 https://stackoverflow.com/questions/53016404/advantages-of-reactive-vs-observe-vs-observeevent
 https://www.digitalocean.com/community/tutorials/how-to-set-up-shiny-server-on-ubuntu-16-04
+https://support.rstudio.com/hc/en-us/articles/213733868-Running-Shiny-Server-with-a-Proxy
 
 ####
 
