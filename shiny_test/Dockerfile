@@ -47,7 +47,7 @@ RUN R -e "install.packages(c('shiny', 'Cairo'), repos='http://cran.rstudio.com/'
 RUN apt-get update \
   && apt-get install -y python3-pip python3-dev \
   && mkdir -p /usr/bin/python \
-  && ln -s /usr/bin/python3 /usr/local/bin/python 
+  && ln -s /usr/bin/python3 /usr/bin/python 
 
 # ------------------------------------------------------------------------------
 # Install shiny-server
@@ -85,9 +85,9 @@ RUN PYTHON=`which python` \
 # ------------------------------------------------------------------------------
 
 FROM r-base:latest
-COPY --from=builder /usr/local/bin/R /usr/local/bin/R
-COPY --from=builder /usr/local/lib/R /usr/local/lib/R
-COPY --from=builder /usr/local/bin/Rscript /usr/local/bin/Rscript
+COPY --from=builder /usr/bin/R /usr/local/bin/R
+COPY --from=builder /usr/lib/R /usr/local/lib/R
+COPY --from=builder /usr/bin/Rscript /usr/local/bin/Rscript
 COPY --from=builder /usr/local/shiny-server /usr/local/shiny-server
 COPY --from=builder /shiny-server-arm /shiny-server-arm
 WORKDIR /
