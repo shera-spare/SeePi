@@ -149,7 +149,6 @@ RUN installGithub.r shera-spare/RasPi
 
 #EXPOSE 8080
 WORKDIR /
-RUN useradd -r -m shiny
 RUN ln -s /usr/local/shiny-server/bin/shiny-server /usr/bin/shiny-server
 
 #Create folder structure and set permissions
