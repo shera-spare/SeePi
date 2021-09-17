@@ -46,7 +46,7 @@ RUN R -e "install.packages(c('shiny', 'Cairo'), repos='http://cran.rstudio.com/'
 # ------------------------------------------------------------------------------
 RUN apt-get update \
   && apt-get install -y python3-pip python3-dev \
-  && rm /usr/bin/python \
+  && mkdir -p /usr/bin/python \
   && ln -s /usr/bin/python3 /usr/local/bin/python 
 
 # ------------------------------------------------------------------------------
