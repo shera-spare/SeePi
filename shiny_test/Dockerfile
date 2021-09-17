@@ -172,5 +172,6 @@ RUN chmod 777 /etc/shiny-server/init.sh
 # CMD R -q -e "source('runApp.R')"
 #CMD R CMD BATCH runApp.R
 COPY app01/* /srv/shiny-server/app01/
+EXPOSE 3838
 
 ENTRYPOINT ["/etc/shiny-server/init.sh"]
