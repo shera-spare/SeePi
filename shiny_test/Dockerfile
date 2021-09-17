@@ -39,13 +39,14 @@ WORKDIR /
 # Install R packages
 # ------------------------------------------------------------------------------
 RUN R -e "install.packages(c('shiny', 'Cairo'), repos='http://cran.rstudio.com/')"
+# RUN install2.r --error shiny Cairo 
 
 # ------------------------------------------------------------------------------
 # Install python 3
 # ------------------------------------------------------------------------------
 RUN apt-get update \
   && apt-get install -y python3-pip python3-dev \
-  && /usr/bin/python \
+  && rm /usr/bin/python \
   && ln -s /usr/bin/python3 /usr/local/bin/python 
 
 # ------------------------------------------------------------------------------
@@ -66,7 +67,7 @@ RUN git clone https://github.com/rstudio/shiny-server.git \
     && cp /shiny-server-arm/determine_arch.sh /determine_arch.sh \
     && chmod +x determine_arch.sh \
     && ./determine_arch.sh
-    
+
 WORKDIR /shiny-server/tmp/
 RUN PYTHON=`which python` \
     && mkdir ../build \
