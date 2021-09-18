@@ -10,6 +10,9 @@ https://stackoverflow.com/questions/53016404/advantages-of-reactive-vs-observe-v
 https://www.digitalocean.com/community/tutorials/how-to-set-up-shiny-server-on-ubuntu-16-04
 https://support.rstudio.com/hc/en-us/articles/213733868-Running-Shiny-Server-with-a-Proxy
 
+docker run --rm -p 3838:3838 -v ~/shiny-server/apps:/srv/shiny-server/ -v ~/shiny-server/logs:/var/log/shiny-server/ -v ~/shiny-server/conf:/etc/shiny-server/ r_40
+
+
 ####
 
 
