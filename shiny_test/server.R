@@ -2,6 +2,7 @@
   library(shiny)
   library(shinydashboard)
   library(tidyverse)
+  library(RasPi)
 }
 
 server <- function(input, output, session) {
@@ -49,7 +50,7 @@ server <- function(input, output, session) {
   })
 
   output$main_storage <- shiny::renderPlot({
-    plot_storage_pieplot(
+    RasPi::plot_storage_pieplot(
       data_set = storage$harddrive,
       is_hdd = TRUE
     )
@@ -57,7 +58,7 @@ server <- function(input, output, session) {
   })
 
   output$ram_storage <- shiny::renderPlot({
-    plot_storage_pieplot(
+    RasPi::plot_storage_pieplot(
       data_set = storage$RAM,
       is_hdd = TRUE
     )
